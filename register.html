@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registerForm" action="connect.php" method="post">
+            <input type="hidden" name="form_type" value="register">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mode">Mode:</label>
+                <select id="mode" name="mode" required>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="donor">Donor</option>
+                    <option value="receiver">Receiver</option>
+                </select>
+            </div>
+            <div id="donorQuestions" class="hidden">
+                <div class="form-group">
+                    <label for="smoker">Do you smoke?</label>
+                    <select id="smoker" name="smoker">
+                        <option value="" disabled selected>Select your habit</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alcoholic">Do you drink alcohol?</label>
+                    <select id="alcoholic" name="alcoholic">
+                        <option value="" disabled selected>Select your habit</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" max="50" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" pattern="\d{10}" required>
+                <small>Enter 10-digit phone number</small>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('mode').addEventListener('change', function() {
+            const mode = this.value;
+            const donorQuestions = document.getElementById('donorQuestions');
+            
+            if (mode === 'donor') {
+                donorQuestions.classList.remove('hidden');
+            } else {
+                donorQuestions.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
