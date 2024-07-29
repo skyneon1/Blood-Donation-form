@@ -2,6 +2,8 @@
 
 This repository contains a login and registration form implemented in HTML and PHP. The data will be stored in sql database using Xampp.
 
+Static View - https://skyneon1.github.io/Blood-Donation-form/
+
 ## Features
 
 - User login form with fields for username, password, and blood group
